@@ -26,4 +26,11 @@ public class Order {
     @Column(name = "amout")
     private int amount;
 
+    public Order(String name, String category, int amount){
+        this.name = name;
+        this.category = category;
+        this.amount = amount;
+    }
+
+
 }
