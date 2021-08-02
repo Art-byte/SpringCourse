@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Peoples</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <br>
+        <div>
+            <a href="/save/0" class="btn btn-primary">Add</a>
+        </div>
+
+
+        
+            <h2 th:if="${list.isEmpty()}">People not found</h2>
+            <div th:if="${!list.isEmpty()}">
+                <h2>People</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>LastName</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="people : ${list}">
+                            <td th:text="${people.name}">
+                            <td th:text="${people.lastName}">
+                            <td th:text="${people.address}">
+                            <td th:text="${people.phone}">
+                            <td><a class="btn btn-info" th:href="@{/save/{id}(id=${people.id})}">Update</a></td>
+                            <td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${people.id})}">Delete</a></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
